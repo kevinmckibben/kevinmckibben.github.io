@@ -1,0 +1,183 @@
+html {
+	background-color: #0F0F0E;
+}
+
+.headtext {
+	/*display:inline-block;
+	float:left;*/
+	vertical-align:top;
+}
+
+h1 {
+	color:#0E8010;
+}
+
+h2 {
+	color:#0E8010;
+}
+
+h3 {
+	color:#0E8010;
+}
+
+p  {
+	color: white;
+}
+
+.contentcontainer {
+	margin: auto;
+	width: 900px;
+	background-color:#050505;
+	padding-left:10px;
+}
+
+.footer {
+	text-align: center;
+	color: #f0a51c;
+}
+
+.footer a {
+	margin: 5px 10px 5px 10px;
+	color: #f0a51c;
+}
+
+a {
+	color: #f0a51c;
+	text-decoration:none;
+}	
+
+.button {
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px; 	
+	margin-left: 1px;
+	margin-right: 1px;
+	background-color: #0E8010;
+	position:relative;
+}	
+
+.langbutton {
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px; 	
+	margin-left: -1px;
+	margin-right: -1px;	
+	position:relative;
+}	
+.codebutton {
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px; 	
+	margin-top: 1px;
+	margin-bottom: 1px;	
+	position:relative;
+	width:85px;
+}	
+
+.codebutton p {
+	text-align:center;
+}
+
+.activebutton {
+	background-color: #87440C;	
+}
+
+.inactivebutton {
+	background-color: #0E8010;
+}
+
+.inactivebutton:hover {
+	background-color: #87440C;
+}
+
+.button:hover {
+	background-color: #87440C;
+	
+}
+
+.langbar  {
+	display:block;
+}
+
+.codebar {
+	display:inline-block;
+}
+
+.codepanel {
+	display:inline-block;
+	vertical-align: top;
+}
+
+.codelisting {
+	display:none;
+}
+
+.logo {
+	display:inline-block;
+}
+
+.rightside {
+	display:inline-block;
+	vertical-align:bottom;
+	margin-left: 1px;
+}
+
+.nav {
+	/*display:inline;*/
+	vertical-align:text-bottom;
+	/*clear:left;*/
+	margin:0;
+}
+
+
+.content {
+	clear: both;
+}
+
+hr {
+	color:#0E8010;
+}
+
+.popmenu {
+	list-style: none;
+	position: absolute;
+	left: -1px; 
+	top: 52px;
+	display: none;
+	background-color:#0F0F0E;
+	width: 197px;
+	z-index: 5;
+	
+}
+
+.popmenu a {
+	text-decoration: none;
+	padding:0;
+}
+
+.popmenuitem {
+	border:ridge 1px #0F0F0E;	
+	
+	background-color:#0E8010;
+	padding-left: 5px;
+	padding-top:0;
+	padding-bottom:0;
+	margin-top:1px;
+	color:#FFFFFF;
+}
+
+.popmenuitem:hover {
+	background-color:#87440C;
+}
+
+li {
+	color:white;
+}
+
+.codeheader {
+	font-style:italic;
+}
+
+#passLabel {
+	text-indent:10px;
+}
