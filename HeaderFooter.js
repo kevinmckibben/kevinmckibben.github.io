@@ -24,7 +24,7 @@ $(document).ready(function() {
 	//footer links
 	var $toTop = '<a>To Top</a>';
 	var $contact = '<a href="mailto:kevin.mckibben@outlook.com">Contact Me</a>';
-	var $resume = '<a href="files/Kevin_McKibben_Resume_SoftwareDev.pdf">Resume</a>';		
+	var $resume = '<a href="Files/Kevin_McKibben_Resume_SoftwareDev.pdf">Resume</a>';		
 	
 	// build the header
 	$(".header").append($logo);
