@@ -1,0 +1,722 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="HeaderFooter.js"></script>       
+        <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="styles.css" />
+        <title>Coding Cheat Sheets</title>             
+    </head>
+    <body>
+    	<div class="wrapper">
+        	<div class="contentcontainer">
+        		<div class="header">
+        		
+        		</div>
+            	<div class="content">
+            		<div class = "appwrapper">
+            			<div class="langbar" style="margin-left: 127px">
+            				<div class="langbutton inactivebutton" id="javascript"><p>Javascript</p></div>
+            				<div class="langbutton inactivebutton" id="csharp"><p>C#</p></div>
+            				<div class="langbutton inactivebutton" id="java"><p>Java</p></div>
+            				<div class="langbutton inactivebutton" id="ruby"><p>Ruby</p></div>
+            				<div class="langbutton inactivebutton" id="perl"><p>Perl</p></div>
+            				<div class="langbutton inactivebutton" id="python"><p>Python</p></div>
+            			</div>
+            			<div class="codebar" style="width:150px">
+            				<div class="codebutton inactivebutton" id="variables"><p>Variables</p></div>
+            				<div class="codebutton inactivebutton" id="conditionals"><p>Conditionals</p></div>
+            				<div class="codebutton inactivebutton" id="loops"><p>Loops</p></div>
+            				<div class="codebutton inactivebutton" id="functions"><p>Functions</p></div>
+            				<div class="codebutton inactivebutton" id="arrays"><p>Arrays</p></div>
+            				<div class="codebutton inactivebutton" id="classes"><p>Classes</p></div>
+            			</div>
+            			<div class="codepanel">
+            				<p>Pick a language and a code structure to display reference sheet.</p><hr/>
+            				<!-- Javascript cheatsheets -->
+            				<div class="codelisting" id="javascriptvariables">
+            					<p class="codeheader">Javascript variables</p>
+            					<code>
+            						<p>var x;</p>
+            						<p>x = 10;</p>
+            						<p>var y = x + 5;</p>
+            						<p>var literal = "I am a string!";</p>
+            						<p>var literaltoo = 'Alternate quote marks';</p>
+            					</code>	
+            						<p class="codeheader">Assigning multiple variables at once</p>
+            					<code>	 
+            						<p>var first = 1, second = 2, third = "totally a number";</p>
+            					</code>            					            					
+            				</div>
+            				<div class="codelisting" id="javascriptconditionals">
+            					<p class="codeheader">If statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            						&nbsp; code;<br />
+            						}</p>
+            					</code>
+            					<p class="codeheader">If-Else statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />
+            						} else {<br />
+            							&nbsp; code;<br />
+            						}</p>	
+            					</code>
+            					<p class="codeheader">If-Elseif statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />
+            						} else if (condition2) {<br />
+            							&nbsp; code;<br />
+            						} else {<br />
+            							&nbsp; code;<br />
+            						}</p>
+            					</code>
+            					<p class="codeheader">switch statements</p>
+            					<code>
+            						<p>switch (variable) {<br />
+            							case 1:<br />
+            								&nbsp; code;<br />
+            								&nbsp; break;<br />
+            							case 2:<br />
+            								&nbsp; code;<br />
+            								&nbsp; break;<br />
+            							default:<br />
+            								&nbsp; code;<br />
+            						}</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javascriptloops">
+            					<p class="codeheader">For Loops</p>
+            					<code>
+            						<p>
+            							for (var i=0;i&lt; x;i++) {<br />
+            								&nbsp; code;<br />
+            							}
+            						</p>
+            					</code>
+            					<p class="codeheader">While Loops</p>
+            					<code>
+            						<p>
+            							while (i &lt; 5) {<br />
+            								&nbsp; code; <br />	
+            							}
+            						</p>
+            					</code>
+            					<p class="codeheader">Do-While Loops</p>
+            					<code>
+            						<p>
+            							do <br />
+            							&nbsp; {<br />
+            								&nbsp; &nbsp; code; <br />	
+            							&nbsp; }<br />
+            							while (i &lt; 5); 
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javascriptfunctions">
+            					<p class="codeheader">Javascript Functions</p>
+            					<code>
+            						<p>
+            							function myFunction (arg1, arg2) {<br />
+            								&nbsp; code; <br />	
+            							}
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javascriptarrays">
+            					<p class="codeheader">Javascript Arrays</p>
+            					<code>
+            						<p>
+            							var arrayName = new Array();<br />
+            							arrayName[0]=x;<br />
+            							arrayName[1]=y;<br />
+            						</p>
+            					</code>
+            					<p>A better way</p>
+            					<code>
+            						<p>
+            							var ArrayName = [x,y,"literal"];
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javascriptclasses">
+            					<p class="codeheader">Javascript Classes</p>
+            					<code>
+            						<p>
+            							testBlock=new Object();<br />
+            							testBlock.attributeOne=x;<br />
+            							testBlock.attributeTwo="literal";
+            						</p>
+            					</code>
+            				</div>
+            				<!-- C# cheatsheets -->
+            				<div class="codelisting" id="csharpvariables">
+            					<p class="codeheader">C# Variables</p>
+            					<code>
+            						<p>int i = 100;<br />
+            							double x =4.25;<br />
+            							char c = "a";<br />
+            						</p>
+            					</code>
+            					<p>
+            						Strings are objects with their own methods and attributes, but can be instantiated like other variables.
+            					</p>
+            					<code>
+            						<p>
+            							string stringyThing = "I am a String.  Ask me anything";            							
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="csharpconditionals">
+            					<p class="codeheader">If Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />	
+            						}</p>
+            					</code>
+								<p class="codeheader">If-Else Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />	
+            						} else {<br />
+            							&nbsp; code;<br />
+            						}</p>
+            					</code>
+            					<p class="codeheader">If-Else if Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />	
+            						} else if (condition2) {<br />
+            							&nbsp; code;<br />
+            						} else {<br />
+            							&nbsp; code;<br />
+            						}</p>
+            					</code>
+            					<p class="codeheader">Switch Statements</p>
+            					<code>
+            						<p>
+            							switch (expression) {<br />
+            								&nbsp; case 1:<br />
+            								&nbsp; &nbsp; code;<br />
+            								&nbsp; &nbsp; break; <br />
+            								&nbsp; case 2:<br />
+            								&nbsp; &nbsp; code;<br />
+            								&nbsp; &nbsp; break; <br />
+            								&nbsp; :<br />
+            								&nbsp; &nbsp; code;<br />
+            							} 
+            						</p>
+            					</code>
+            				</div>	
+            				<div class="codelisting" id="csharploops">
+            					<p class="codeheader">While Loops</p>
+            					<code>
+            						<p>while (condition) {<br />
+            							&nbsp; code; <br /> 
+            							}</p>
+            					</code>
+            					<p class="codeheader">For Loops</p>
+            					<code>
+            						<p>
+            							for (init; condition; increment) {<br />
+            							&nbsp; code;<br />	
+            							}
+            						</p>
+            						<p>
+            							for (i=0; i&lt; 10; i++) {<br />
+            							&nbsp; code;<br />	
+            							}
+            						</p>
+            					</code>
+            					<p class="codeheader">Do While Loops</p>
+            					<code>
+            						<p>
+            							do {<br />
+            							&nbsp; code;<br />	
+            							} while (condition);
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="csharpfunctions">
+            					<p class="codeheader">C# Functions (methods)</p>
+            					<code>
+            						<p>public int numberMaker (arg1, arg2) {<br />
+            							&nbsp; code;<br />
+            							&nbsp; return x;<br />
+            						}</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="csharparrays">
+            					<p class="codeheader">C# Arrays</p>
+            					<code>
+            						<p>int[] myArray = new int[10];<br />
+            							int[0]=5;<br />
+            						</p>
+            						<p>
+            							double[] anotherArray = {5.2, 4.3, 10.9};<br />
+            							double[] anotherArray = new double[] {5.2, 4.3, 10.9};
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="csharpclasses">
+            					<p class="codeheader">C# Classes</p>
+            					<code>
+            						<p>public class myClass {<br />
+            							&nbsp; public int myInt;<br />
+            							&nbsp; private double secretDouble;<br /><br />
+            							&nbsp; public int method(args) {<br />
+            								&nbsp; &nbsp;code;<br />
+            								&nbsp; }<br />	
+            						}</p>
+            					</code>
+            				</div>
+            				<!-- Java cheatsheets -->
+            				<div class="codelisting" id="javavariables">
+            					<p class="codeheader">Java Variables</p>
+            					<code>
+            						<p>int number = 5;<br />
+            							int number2 = x;<br />
+            							boolean guess = true;<br />
+            							String name = "Marklar";
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javaconditionals">
+            					<p class="codeheader">If Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br/>
+            							&nbsp; code;<br/>
+            							}</p>
+            					</code>
+            					<p class="codeheader">If there is only one statement, you can omit the braces:</p>
+            					<code>
+            						<p>if (condition) <br />
+            							&nbsp; code;
+            							</p>
+            					</code>
+            					<p class="codeheader">If-Else statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />
+            						} else {<br />
+            							&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">If-Else if statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            							&nbsp; code;<br />
+            						} else if (condition) {<br />
+            							&nbsp; code;<br />	
+            						} else {<br />
+            							&nbsp; code;<br />
+            						}</p>
+            					</code>
+            					<p class="codeheader">Switch statements</p>
+            					<code>
+            						<p>switch (x) {<br />
+            							&nbsp; case 1: code;<br />
+            							&nbsp; &nbsp; break;<br />
+            							&nbsp; case 2: code;<br />
+            							&nbsp; &nbsp; break;<br />
+            							&nbsp; default: code;<br />
+            							&nbsp; &nbsp; break;<br />
+            						}</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javaloops">
+            					<p class="codeheader">While Loops</p>
+            					<code>
+            						<p>while (condition) {<br />
+            							&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">Do While Loops</p>
+            					<code>
+            						<p>do {<br />
+            							&nbsp; code;<br />	
+            						} while (condition);</p>
+            					</code>
+            					<p class="codeheader">For loops</p>
+            					<code>
+            						<p>for (init; terminate; increment) {<br />
+            							&nbsp; code;<br />	
+            						}</p>
+            						<p>for (i=0; i&lt; 10; i++) {<br />
+            							&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javafunctions">
+            					<p class="codeheader">Java Functions</p>
+            					<code>
+            						<p>public int myFunction (int arg1, int arg2) {<br />
+            							&nbsp; code;<br />	
+            							&nbsp; code;<br />
+            						}</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javaarrays">
+            					<p class="codeheader">Java Arrays</p>
+            					<code>
+            						<p>array1 = new int[3];<br />
+            							array1[0] = 1;</p>
+            					</code>
+            					<p class = "codeheader">
+            						OR
+            					</p>
+            					<code>
+            						<p>int[] array2 = {1,2,3,4,5};</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="javaclasses">
+            					<p class="codeheader">Java Classes</p>
+            					<code>
+            						<p>public class myClass {<br />
+            							&nbsp; public int x;<br />
+            							&nbsp; private int y;<br /><br />
+            							&nbsp; // constructor<br />
+            							&nbsp; public myClass (int startx, int starty) {<br />
+            							&nbsp; &nbsp; x=startx;<br />
+            							&nbsp; &nbsp; y=starty;<br />	
+            							&nbsp; }<br />
+            							&nbsp; public int myMethod {<br />
+            							&nbsp; &nbsp; code;<br />	
+            							&nbsp; }<br />	
+            						}</p>
+            					</code>
+            				</div>
+            				<!-- Ruby cheatsheets -->
+            				<div class="codelisting" id="rubyvariables">
+            					<p class="codeheader">Global variables</p>
+            					<code>
+            						<p>$varname=x</p>
+            					</code>
+            					<p class="codeheader">Instance variables</p>
+            					<code>
+            						<p>@varname=x</p>
+            					</code>
+            					<p class="codeheader">Class variables</p>
+            					<code>
+            						<p>@@varname=x</p>
+            					</code>
+            					<p class="codeheader">constants</p>
+            					<code>
+            						<p>VARNAME=10</p>
+            					</code>
+            					<p class="codeheader">Local variables</p>
+            					<code>
+            						<p>varname=x</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="rubyconditionals">
+            					<p class="codeheader">If Else statements</p>
+            					<code>
+            						<p>if condition<br />
+            							&nbsp; code<br />
+            							elseif condition<br />
+            							&nbsp; code<br />
+            							else<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            					<p class="codeheader">Unless statements</p>
+            					<code>
+            						<p>unless condition<br />
+            							&nbsp; code
+            							else<br />
+            							code<br />
+            							end
+            						</p>
+            					</code>
+            					<p class="codeheader">Case statements</p>
+            					<code>
+            						<p>case expression<br />
+            							when val1<br />
+            							&nbsp; code<br />
+            							when val2, val3<br />
+            							&nbsp; code<br />
+            							else<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="rubyloops">
+            					<p class="codeheader">While Loops</p>
+            					<code>
+            						<p>while condition do<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            					<p class="codeheader">Until Loops</p>
+            					<code>
+            						<p>until condition do<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            					<p class="codeheader">For Loops</p>
+            					<code>
+            						<p>for var in range<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            						<p>for i in 0..5<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="rubyfunctions">
+            					<p class="codeheader">Ruby Methods</p>
+            					<code>
+            						<p>def myMethod (arg1, arg2)<br />
+            							&nbsp; code<br />
+            							end
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="rubyarrays">
+            					<p class="codeheader">Ruby Arrays</p>
+            					<code>
+            						<p>array = [1,2,"literal"]</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="rubyclasses">
+            					<p class="codeheader">Ruby Classes</p>
+            					<code>
+            						<p>Class MyClass {<br />
+            						&nbsp; Number var1<br />
+            						&nbsp; Number var2<br />
+            						&nbsp; Function myFunction {<br />
+            						&nbsp; &nbsp; code<br />
+            						&nbsp; }<br />	
+            						}</p>
+            					</code>
+            				</div>
+            				<!-- Perl cheatsheets -->
+            				<div class="codelisting" id="perlvariables">
+            					<p class="codeheader">Perl Variables</p>
+            					<code>
+            						<p>$myvar=10;<br />
+            							$myname="Kevin";
+            						</p>
+            						
+            					</code>
+            				</div>
+            				<div class="codelisting" id="perlconditionals">
+            					<p class="codeheader">If Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">If-Else Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            						&nbsp; code;<br />	
+            						} else {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">If-Elseif Statements</p>
+            					<code>
+            						<p>if (condition) {<br />
+            						&nbsp; code;<br />	
+            						} elsif (condition) {<br />
+            						&nbsp; code;<br />	
+            						} else {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">Switch Statements</p>
+            					<code>
+            						<p>use Switch;<br /><br />
+            						switch (argument) {<br />
+            						&nbsp; case 1 {code}<br />
+            						&nbsp; case 2 {code}<br />
+            						&nbsp; case "x" {code}<br />
+            						&nbsp; else {code} <br />	
+            						}	
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="perlloops">
+            					<p class="codeheader">While loops</p>
+            					<code>
+            						<p>while (condition) {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">until loops</p>
+            					<code>
+            						<p>until (condition) {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">for loops</p>
+            					<code>
+            						<p>for (init; condition; increment) {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p class="codeheader">do-while loops</p>
+            					<code>
+            						<p>do {<br />
+            						&nbsp; code;<br />	
+            						} while (condition);</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="perlfunctions">
+            					<p class="codeheader">Perl Functions</p>
+            					<code>
+            						<p>sub myMethod {<br />
+            						&nbsp; code;<br />	
+            						}</p>
+            					</code>
+            					<p>Perl functions do not define arguments.  Use the array @_ to access any arguments passed to the method.</p>
+            				</div>
+            				<div class="codelisting" id="perlarrays">
+            					<p class="codeheader">Perl Arrays</p>
+            					<code>
+            						<p>@myarray=(1,2,"thingy");</p>
+            					</code>
+            				</div>
+	            				<div class="codelisting" id="perlclasses">
+            					<p class="codeheader">Perl Classes</p>
+            					<code>
+            						<p>package myClass;<br /><br />
+            							sub new {<br />
+            							&nbsp; code;<br />	
+            							}            							
+            						</p>
+            					</code>
+            				</div>
+            				<!-- Python cheatsheets -->
+            				<div class="codelisting" id="pythonvariables">
+            					<p class="codeheader">Python Variables</p>
+            					<code>
+            						<p>var1=1<br />
+            							var2="dum dum dum"
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="pythonconditionals">
+            					<p class="codeheader">If Statements</p>
+            					<code>
+            						<p>if condition:<br />
+            							&nbsp; code
+            						</p>
+            					</code>
+            					<p class="codeheader">If Esle-if Statements</p>
+            					<code>
+            						<p>if condition:<br />
+            							&nbsp; code<br />
+            							elif condition:<br />
+            							&nbsp; code<br />
+            							else:<br />
+            							&nbsp; code
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="pythonloops">
+            					<p class="codeheader">While Loops</p>
+            					<code>
+            						<p>while condition:<br />
+            							&nbsp; code
+            						</p>
+            					</code>
+            					<p class="codeheader">for Loops</p>
+            					<code>
+            						<p>for var in sequence:<br />
+            							&nbsp; code
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="pythonfunctions">
+            					<p class="codeheader">Python Functions</p>
+            					<code>
+            						<p>def myFunction (arg1, arg2):<br />
+            							&nbsp; "docstring (optional)"<br />
+            							&nbsp; code<br />
+            							&nbsp; return x OR return
+            						</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="pythonarrays">
+            					<p class="codeheader">Python Arrays</p>
+            					<code>
+            						<p>array = [1,2,"erp"];</p>
+            					</code>
+            				</div>
+            				<div class="codelisting" id="pythonclasses">
+            					<p class="codeheader">Python Classes</p>
+            					<code>
+            						<p>class myClass:<br />
+            							&nbsp; code
+            						</p>
+            					</code>
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+            	<div class="footer">
+            	
+            	</div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+        	var currentlang="javascript";
+        	var currentcode="variables";        	
+        	$(document).ready(function() {
+        		//langbutton trigger
+        		$(".langbutton").click(function() {
+        			currentlang=$(this).attr("id");
+        			//alert(currentlang + currentcode);
+        			codeshow(currentlang,currentcode);
+        		});        		
+        		//codebutton trigger
+        		$(".codebutton").click(function() {
+        			currentcode=$(this).attr("id");
+        			//alert(currentlang + currentcode);
+        			codeshow(currentlang,currentcode);
+        		});        		
+        		//function to display the selected code
+        		function codeshow(lang,code) {
+        			//alert("codeshow called");
+        			$(".codelisting").hide();
+        			var showsolution = concat(lang,code);
+        			buttonchanger(lang,code);        			
+        			$(showsolution).show();
+        		}        		
+        		//build a string for JQuery to call the ID of the referenced code listing
+        		function concat(lang,code) {
+        			//alert("concat called");
+        			var bigstring = "#" + lang + code;
+        			return bigstring;
+        		}        		
+        		
+        		function buttonchanger(lang,code) {
+        			//alert("buttonchanger called");
+        			//change active buttons to inactive.
+        			$(".activebutton").addClass("inactivebutton");
+        			$(".activebutton").removeClass("activebutton");
+        			//add activebutton class to current code and lang        			        			
+        			$("#"+code).addClass("activebutton");
+        			$("#"+lang).addClass("activebutton");
+        			//remove inactive class from active buttons
+        			$(".activebutton").removeClass("inactivebutton");      			
+        		}
+        	});  	
+        </script>
+                 
+    </body>
+</html>

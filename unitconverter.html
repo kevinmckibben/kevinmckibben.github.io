@@ -1,0 +1,623 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="HeaderFooter.js"></script>       
+        <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+        <link type="text/css" rel="stylesheet" href="styles.css" />
+        <title>Universal Unit Converter</title>
+    </head>
+    <body>
+    	<div class="wrapper">
+        	<div class="contentcontainer">
+        		<div class="header">
+        		
+        		</div>
+            	<div class="content" >
+            		<form name="unitConverter">
+            			<p> <!-- unit type selectors -->
+            				<input name="unitType" type="radio" value="distance" onchange="setUnits(distanceArray)">Distance  
+            				<input name="unitType" type="radio" value="weight" onchange="setUnits(weightArray)">Weight  
+            				<input name="unitType" type="radio" value="volume" onchange="setUnits(volumeArray)">Volume  
+            			</p>
+            			<p>  <!-- Unit menus -->
+            				<input type="text" name = "txtFromValue">
+            				<select name="fromUnitPicker" onchange="factor()">
+            					<option>Select a unit type above</option>
+            				</select>
+            				=<span id ="lblToValue" ></span>  
+            				<select name="toUnitPicker" onchange="factor()">
+            				</select>
+            			</p>
+            			
+            			<p><input type="button" value="Go!" onclick="go()"/></p>
+            		</form>
+            	</div>
+            	<div class="footer">
+            	
+            	</div>
+            </div>
+            
+            <!-- Javascript logic for the converter -->
+       		<script type="text/javascript">
+        
+           	// distance unit conversion factors
+        	var inchesToFeet=1/12;
+        	var inchesToMiles=(1/12)/5280;
+        	var inchesTomm=25.4;
+        	var inchesTocm=2.54;
+        	var inchesTom=0.0254;
+        	var inchesTokm=0.0000254;
+        	var feetToInches=12;
+        	var feetToMiles=1/5280;
+        	var feetTomm=304.8;
+        	var feetTocm=30.48;
+        	var feetTom=0.3048;
+        	var feetTokm=0.0003048;
+        	var inchesToInches=1;
+        	var feetToFeet=1;
+        	var milesToInches=63360;
+        	var milesToFeet=5280;
+        	var milesToMiles=1;
+        	var milesTomm=1609340;
+        	var milesTocm=160934;
+        	var milesTom=1609.34;  
+        	var milesTokm=1.60934;
+        	var mmToInches=0.0393701;
+        	var mmToFeet=0.00328084;
+        	var mmtoMiles=0.00000062137;
+        	var mmTomm=1;
+        	var mmTocm=0.1;
+        	var mmTom=0.001;
+        	var mmTokm=0.000001;
+        	var cmToInches=0.393701;
+        	var cmToFeet=0.0328084;
+        	var cmToMiles=0.0000062137;
+        	var cmTomm=10;
+        	var cmTocm=1;
+        	var cmTom=0.01;
+        	var cmTokm=0.00001;
+        	var mToInches=39.3701;
+        	var mToFeet=3.28084;
+        	var mToMiles=0.000621371;
+        	var mTomm=1000;
+        	var mTocm=100;
+        	var mTom=1;
+        	var mTokm=0.001;
+        	var kmToInches=39370.1;
+        	var kmToFeet=3280.84;
+        	var kmToMiles=0.621371;
+        	var kmTomm=1000000;
+        	var kmTocm=100000;
+        	var kmTom=1000;
+        	var kmTokm=1;
+        	
+        	//weight conversion factors
+        	var poundsTog=453.592;
+        	var poundsToPounds=1;
+        	var poundsTokg=0.453592;
+        	var poundsToTons=1/2000;
+        	var poundsToMTons=0.000453592;
+        	var gToPounds=1000000;
+        	var gTog=1;
+        	var gTokg=1000;
+        	var gToTons=0.0000011023;
+        	var gToMTons=0.000001;
+        	var kgToPounds=2.20462;
+        	var kgTog=1000;
+        	var kgTokg=1;
+        	var kgToTons=0.00110231;
+        	var kgToMTons=0.001;
+        	var tonsToPounds=2000;
+        	var tonsTog=907185;
+        	var tonsTokg=907.185;
+        	var tonsToTons=1;
+        	var tonsToMTons=0.907185;
+        	var mTonsToPounds=2204.62;
+        	var mTonsTog=1000000;
+        	var mTonsTokg=1000;
+        	var mTonsToTons=1.10231;
+        	var mTonstomTons=1;
+        	
+        	// volume conversion factors
+        	var mm3Tocm3= 0.001;
+        	var mm3Tomm3=1;
+        	var mm3Tom3=0.000000001;
+        	var mm3Toft3=0.000000035314667;
+        	var mm3Toin3=0.0000610237441;
+        	var cm3Tocm3=1;
+        	var cm3Tom3=0.000001;
+        	var cm3Toft3=0.000035314667;
+        	var cm3Toin3=0.0610237441;
+        	var cm3Tomm3=1000;
+        	var m3Tocm3=1000000;
+        	var m3Tom3=1;
+        	var m3Toft3=35.3147;
+        	var m3Toin3=61023.7;
+        	var m3Tomm3=1000000000;
+        	var ft3Tocm3=28316.8466;
+        	var ft3Tom3=0.0283168;
+        	var ft3Toft3=1;
+        	var ft3Toin3=1728;
+        	var ft3Tomm3=28316846.6;
+        	var in3Tocm3=16.387064;
+        	var in3Tom3=0.0000163871;
+        	var in3Toft3=0.000578704;
+        	var in3Toin3=1;
+        	var in3Tomm3=16387.064;
+        	
+        	// the conversion factor
+        	var conversionFactor=1;
+        	
+        	//select list unit type arrays
+        	var distanceArray = ['<option value="inches">Inches</option>','<option value="feet">Feet</option>',
+        		'<option value="miles">Miles</option>','<option value="mm">Milimeters</option>','<option value="cm">Centimeters</option>',
+        		'<option value="meters">Meters</option>','<option value="km">Kilometers</option>'];
+        	var weightArray = ['<option value="lbs">Pounds</option>','<option value="tons">Tons</option>',
+        		'<option value="grams">Grams</option>','<option value="kg">Kilograms</option>','<option value="mtons">Metric Tons</option>'];
+        	var volumeArray = ['<option value="in3">Cubic Inches</option>','<option value="ft3">Cubic Feet</option>',
+        		'<option value="mm3">Cubic Milimeters</option>','<option value="cm3">Cubic Centimeters</option>','<option value="m3">Cubic Meters</option>'];
+        	//logic for setting the select options
+        	function setUnits(array) {
+        		switch (array) {
+        			case distanceArray:
+        				 buildSelect(distanceArray);
+        				 break;
+        			case weightArray:
+        				buildSelect(weightArray);
+        				break;
+        			case volumeArray:
+        				buildSelect(volumeArray);
+        				break;
+        		}
+        		$(document).ready(function() {
+        			$("#lblToValue").text(0);
+        		});
+        		
+        	}
+
+			// adding array elements to the select menu
+			function buildSelect(array) {
+				document.unitConverter.fromUnitPicker.innerHTML=array;
+				document.unitConverter.toUnitPicker.innerHTML=array;
+				factor();
+								
+			}       	
+        	
+        	// logic for setting the conversion factor
+        	function factor () {
+        		if (document.unitConverter.fromUnitPicker.innerHTML==distanceArray) {
+        			switch (document.unitConverter.fromUnitPicker.selectedIndex) {
+        				case 0:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=inchesToInches;
+        							break;
+        						case 1:
+        							conversionFactor=inchesToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=inchesToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=inchesTomm;
+        							break;
+        						case 4:
+        							conversionFactor=inchesTocm;
+        							break;
+        						case 5:
+        							conversionFactor=inchesTom;
+        							break;
+        						case 6:
+        							conversionFactor=inchesTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 1:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=feetToInches;
+        							break;
+        						case 1:
+        							conversionFactor=feetToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=feetToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=feetTomm;
+        							break;
+        						case 4:
+        							conversionFactor=feetTocm;
+        							break;
+        						case 5:
+        							conversionFactor=feetTom;
+        							break;
+        						case 6:
+        							conversionFactor=feetTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 2:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=milesToInches;
+        							break;
+        						case 1:
+        							conversionFactor=milesToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=milesToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=milesTomm;
+        							break;
+        						case 4:
+        							conversionFactor=milesTocm;
+        							break;
+        						case 5:
+        							conversionFactor=milesTom;
+        							break;
+        						case 6:
+        							conversionFactor=milesTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 3:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=mmToInches;
+        							break;
+        						case 1:
+        							conversionFactor=mmToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=mmToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=mmTomm;
+        							break;
+        						case 4:
+        							conversionFactor=mmTocm;
+        							break;
+        						case 5:
+        							conversionFactor=mmTom;
+        							break;
+        						case 6:
+        							conversionFactor=mmTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 4:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=cmToInches;
+        							break;
+        						case 1:
+        							conversionFactor=cmToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=cmToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=cmTomm;
+        							break;
+        						case 4:
+        							conversionFactor=cmTocm;
+        							break;
+        						case 5:
+        							conversionFactor=cmTom;
+        							break;
+        						case 6:
+        							conversionFactor=cmTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 5:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=mToInches;
+        							break;
+        						case 1:
+        							conversionFactor=mToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=mToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=mTomm;
+        							break;
+        						case 4:
+        							conversionFactor=mTocm;
+        							break;
+        						case 5:
+        							conversionFactor=mTom;
+        							break;
+        						case 6:
+        							conversionFactor=mTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        				case 6:
+        					switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        						case 0:
+        							conversionFactor=kmToInches;
+        							break;
+        						case 1:
+        							conversionFactor=kmToFeet;
+        							break;
+        						case 2:
+        							conversionFactor=kmToMiles;
+        							break;
+        						case 3:
+        							conversionFactor=kmTomm;
+        							break;
+        						case 4:
+        							conversionFactor=kmTocm;
+        							break;
+        						case 5:
+        							conversionFactor=kmTom;
+        							break;
+        						case 6:
+        							conversionFactor=kmTokm;
+        							break;
+        						default:
+        							conversionFactor=1;
+        					} break;
+        					default:
+        						conversionFactor=1;
+        			}
+        		} else if (document.unitConverter.fromUnitPicker.innerHTML==weightArray) {
+        			switch (document.unitConverter.fromUnitPicker.selectedIndex) {
+        			case 0:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=poundsToPounds;
+        						break;
+        					case 1:
+        						conversionFactor=poundsToTons;
+        						break;
+        					case 2:
+        						conversionFactor=poundsTog;
+        						break;
+        					case 3:
+        						conversionFactor=poundsTokg;
+        						break;
+        					case 4:
+        						conversionFactor=poundsToMTons;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 1:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=tonsToPounds;
+        						break;
+        					case 1:
+        						conversionFactor=tonsToTons;
+        						break;
+        					case 2:
+        						conversionFactor=tonsTog;
+        						break;
+        					case 3:
+        						conversionFactor=tonsTokg;
+        						break;
+        					case 4:
+        						conversionFactor=tonsToMTons;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 2:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=gToPounds;
+        						break;
+        					case 1:
+        						conversionFactor=gToTons;
+        						break;
+        					case 2:
+        						conversionFactor=gTog;
+        						break;
+        					case 3:
+        						conversionFactor=gTokg;
+        						break;
+        					case 4:
+        						conversionFactor=gToMTons;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 3:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=kgToPounds;
+        						break;
+        					case 1:
+        						conversionFactor=kgToTons;
+        						break;
+        					case 2:
+        						conversionFactor=kgTog;
+        						break;
+        					case 3:
+        						conversionFactor=kgTokg;
+        						break;
+        					case 4:
+        						conversionFactor=kgToMTons;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 4:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=mTonsToPounds;
+        						break;
+        					case 1:
+        						conversionFactor=mTonsToTons;
+        						break;
+        					case 2:
+        						conversionFactor=mTonsTog;
+        						break;
+        					case 3:
+        						conversionFactor=mTonsTokg;
+        						break;
+        					case 4:
+        						conversionFactor=mTonsToMTons;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        				default:
+        				conversionFactor=1;
+        			}
+        		} else if (document.unitConverter.fromUnitPicker.innerHTML==volumeArray) {
+        			switch (document.unitConverter.fromUnitPicker.selectedIndex) {
+        				case 0:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=in3Toin3;
+        						break;
+        					case 1:
+        						conversionFactor=in3Toft3;
+        						break;
+        					case 2:
+        						conversionFactor=in3Tomm3;
+        						break;
+        					case 3:
+        						conversionFactor=in3Tocm3;
+        						break;
+        					case 4:
+        						conversionFactor=in3Tom3;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 1:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=ft3Toin3;
+        						break;
+        					case 1:
+        						conversionFactor=ft3Toft3;
+        						break;
+        					case 2:
+        						conversionFactor=ft3Tomm3;
+        						break;
+        					case 3:
+        						conversionFactor=ft3Tocm3;
+        						break;
+        					case 4:
+        						conversionFactor=ft3Tom3;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 2:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=mm3Toin3;
+        						break;
+        					case 1:
+        						conversionFactor=mm3Toft3;
+        						break;
+        					case 2:
+        						conversionFactor=mm3Tomm3;
+        						break;
+        					case 3:
+        						conversionFactor=mm3Tocm3;
+        						break;
+        					case 4:
+        						conversionFactor=mm3Tom3;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 3:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=cm3Toin3;
+        						break;
+        					case 1:
+        						conversionFactor=cm3Toft3;
+        						break;
+        					case 2:
+        						conversionFactor=cm3Tomm3;
+        						break;
+        					case 3:
+        						conversionFactor=cm3Tocm3;
+        						break;
+        					case 4:
+        						conversionFactor=cm3Tom3;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        			case 4:
+        				switch (document.unitConverter.toUnitPicker.selectedIndex) {
+        					case 0:
+        						conversionFactor=m3Toin3;
+        						break;
+        					case 1:
+        						conversionFactor=m3Toft3;
+        						break;
+        					case 2:
+        						conversionFactor=m3Tomm3;
+        						break;
+        					case 3:
+        						conversionFactor=m3Tocm3;
+        						break;
+        					case 4:
+        						conversionFactor=m3Tom3;
+        						break;
+        					default:
+        						conversionFactor=1;
+        				} break;
+        				default:
+        				conversionFactor=1;
+        			}
+        		} else {
+        			alert ("Please pick units to convert"); 
+        		} 
+        		
+        	}      		
+        		
+        	//main mehtod to run when GO button is clicked
+        	function go() {        		
+        		if (validate(document.unitConverter.txtFromValue.value)) {
+        			convert();
+        		} else {
+        			alert("Input must be a number");
+        		}
+        	}
+        	
+        	//logic to validate numeric input
+        	function validate(val) {
+        		if (isNaN(val)) {
+        			return false;
+        		} else {
+        			return true;
+        		}
+        	}
+        	
+        	//logic to calculate outout value
+        	function convert() {
+        		var output = (document.unitConverter.txtFromValue.value)*(conversionFactor);
+        		$(document).ready(function() {
+        			$("#lblToValue").text(output);
+        		});
+        		
+        		
+        	}
+        </script>
+        </div>
+    </body>
+</html>
