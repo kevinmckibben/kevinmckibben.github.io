@@ -46,7 +46,7 @@ $(document).ready(function() {
 	$(".footer").append("<hr>");
 	$(".footer").append($contact);	
 	$(".footer").append("|");
-	$(".footer").append($resume);	
+	//$(".footer").append($resume);	
 		
 	//show the programs menu
 	$("#programs").mouseenter(function() {
